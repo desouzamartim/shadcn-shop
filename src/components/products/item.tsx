@@ -3,17 +3,18 @@
 import { Product } from "@/types/product";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast"
-import { ToastAction } from "@radix-ui/react-toast";
+import { useCartStore } from "@/stores/cart-store";
 
 type Props = {
   item: Product;
 }
 
 export const ProductItem = ({item}: Props) => {
-
   const {toast} = useToast();
+  const {upsertCartItem} = useCartStore(state => state);
 
   const handleAddButton = () => {
+    upsertCartItem(item, 1);
    toast({title: "Produto adicionado ao carrinho:", description: item.name});
   }
 
@@ -31,4 +32,8 @@ export const ProductItem = ({item}: Props) => {
       </div>
     </div>
   )
+}
+
+function upSertCartItem(item: Product, arg1: number) {
+  throw new Error("Function not implemented.");
 }
