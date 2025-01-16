@@ -1,5 +1,4 @@
 import { Cart } from "@/types/cart"
-import { Item } from "@radix-ui/react-dropdown-menu";
 import { CartItemQuantity } from "./item-quantity";
 
 type Props = {
